@@ -1,0 +1,44 @@
+Notãção: 
+
+Char
+#   -> Chave Primária
+_   -> Chave Estrangeira
+
+
+Bairro(#NomeBairro,Latitude,Longitude)
+
+QuantBairro2013(_#NomeBairro,Total)
+	FK(NomeBairro) REFERENCES Bairro(NomeBairro)
+
+QuantBairro2012(_#NomeBairro,Total)
+	FK(NomeBairro) REFERENCES Bairro (NomeBairro)
+
+CRE(#Codigo,NomeIniciail,UltimoNome,imagemSatelite)
+
+Telefone(Codigo_conselho,Telefone)
+	PK(Codigo_conselho,Telefone),
+	FK(Codigo_conselho) REFERENCES CRE (Codigo) ON DELETE CASCADE
+
+
+Serie(#Codigo,Descrição)
+
+Escola(#Designacao,Nome,Latitude,Longitude,NomeBairro)
+	FK(NomeBairro) REFERENCES Bairro(NomeBairro)
+
+Disciplina(#Sigla,Nome,Descricao)
+
+DisciplinaEscola(numeroProfessores,#Sigla,#Designacao)
+	PK(Sigla,Designacao)
+	FK(Sigla) REFERENCES Disciplina (Sigla)
+	FK(Designacao) REFERENCES Escola (Designacao)
+
+EscolaSerie(#Codigo,#Designacao)
+	PK(Codigo,Designacao)
+	FK(Codigo) REFERENCES Serie (Codigo)
+	FK(Designacao) REFERENCES Escola (Designacao)
+
+FrequenciaAprovados(TotalAvaliados,TotalAprovados,TotalReprovados,
+PercAprovados,#AnoLetivo,PercFrequencia,#Codigo,#CodigoCRE)
+	PK(AnoLetivo,Codigo,CodigoCRE)
+	FK(Codigo) REFERENCES Serie (Codigo)
+	FK(CodigoCRE) REFERENCES CRE (Codigo)
