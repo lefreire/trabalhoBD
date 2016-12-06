@@ -4,77 +4,85 @@
 
 
 CREATE TABLE Bairro (
-NomeBairro varchar(100) PRIMARY KEY,
-Latitude float,
-Longitude float
-);
+	NomeBairro VARCHAR() PRIMARY KEY,
+	Latitude FLOAT,
+	Longitude FLOAT
+)
 
-CREATE TABLE Escola (
-Designacao varchar(100) PRIMARY KEY,
-Nome varchar(100),
-Latitude float,
-Longitude float,
-NomeBairro varchar(100),
-FOREIGN KEY(NomeBairro) REFERENCES Bairro (NomeBairro)
-);
+CREATE TABLE QuantBairro2013 (
+	NomeBairro VARCHAR() PRIMARY KEY,
+	Total INT,
+	FOREIGN KEY(NomeBairro) REFERENCES Bairro (NomeBairro)
+)
 
-CREATE TABLE QtdadeBairro (
-Ano year PRIMARY KEY,
-NomeBairro varchar(100),
-FOREIGN KEY(NomeBairro) REFERENCES Bairro (NomeBairro)
-);
+CREATE TABLE QuantBairro2012 (
+	NomeBairro VARCHAR() PRIMARY KEY,
+	Total INT,
+	FOREIGN KEY(NomeBairro) REFERENCES Bairro (NomeBairro)
+)
 
-CREATE TABLE QtadeAlunosBairro (
-Total int
-);
-
-CREATE TABLE EscolaDisciplina (
-NumProfessores int,
-Sigla varchar(25),
-Designacao varchar(100),
-FOREIGN KEY(Designacao) REFERENCES Escola (Designacao)
-);
-
-CREATE TABLE Disciplina (
-Nome varchar(100),
-Sigla varchar(25) PRIMARY KEY,
-Descricao varchar(100)
-);
-
-CREATE TABLE EscolaSerie (
-CodigoSerie int,
-Designacao varchar(100),
-FOREIGN KEY(Designacao) REFERENCES Escola (Designacao)
-);
+CREATE TABLE CRE (
+	Codigo VARCHAR() PRIMARY KEY,
+	NomeIniciail VARCHAR(),
+	UltimoNome VARCHAR(),
+	imagemSatelite BLOB
+)
 
 CREATE TABLE Telefone (
-Telefone int
-);
-
-CREATE TABLE FrequenciaAprovacao (
-TotalAvaliados int,
-TotalAprovados int,
-TotalReprovados int,
-PercentAprov float,
-AnoLetivo year PRIMARY KEY,
-PercentFreq float,
-CodigoConselho int,
-CodigoSerie int
-);
-
-CREATE TABLE ConselhoRegionalEducacao (
-CodigoConselho int PRIMARY KEY,
-NomeInicial varchar(25),
-UltimoNome varchar(25),
-ImagemSatelite varchar(100)
-);
+	Codigo_conselho VARCHAR(),
+	Telefone VARCHAR(),
+	PRIMARY KEY(Codigo_conselho,Telefone),
+	FOREIGN KEY(Codigo_conselho) REFERENCES CRE (Codigo) ON DELETE CASCADE
+)
 
 CREATE TABLE Serie (
-CodigoSerie int PRIMARY KEY,
-Descricao varchar(100)
-);
+	Codigo INT PRIMARY KEY,
+	Descrição VARCHAR()
+)
 
-ALTER TABLE EscolaDisciplina ADD FOREIGN KEY(Sigla) REFERENCES Disciplina (Sigla);
-ALTER TABLE EscolaSerie ADD FOREIGN KEY(CodigoSerie) REFERENCES Serie (CodigoSerie);
-ALTER TABLE FrequenciaAprovacao ADD FOREIGN KEY(CodigoConselho) REFERENCES ConselhoRegionalEducacao (CodigoConselho);
-ALTER TABLE FrequenciaAprovacao ADD FOREIGN KEY(CodigoSerie) REFERENCES Serie (CodigoSerie);
+CREATE TABLE Escola (
+	Designacao VARCHAR() PRIMARY KEY,
+	Nome VARCHAR(),
+	Latitude FLOAT,
+	Longitude FLOAT,
+	NomeBairro VARCHAR(),
+	FOREIGN KEY(NomeBairro) REFERENCES Bairro (NomeBairro)
+)
+
+CREATE TABLE Disciplina (
+	Nome VARCHAR(),
+	Sigla VARCHAR() PRIMARY KEY,
+	Descricao VARCHAR()
+)
+
+CREATE TABLE DisciplinaEscola (
+	numeroProfessores INT,
+	Sigla VARCHAR(),
+	Designacao VARCHAR(),
+	PRIMARY KEY(Sigla,Designacao),
+	FOREIGN KEY(Sigla) REFERENCES Disciplina (Sigla),
+	FOREIGN KEY(Designacao) REFERENCES Escola (Designacao)
+)
+
+CREATE TABLE EscolaSerie (
+	Codigo INT,
+	Designacao VARCHAR(),
+	PRIMARY KEY(Codigo,Designacao),
+	FOREIGN KEY(Codigo) REFERENCES Serie (Codigo),
+	FOREIGN KEY(Designacao) REFERENCES Escola (Designacao)
+)
+
+CREATE TABLE FrequenciaAprovados (
+	TotalAvaliados INT,
+	TotalAprovados INT,
+	TotalReprovados INT,
+	PercAprovados FLOAT,
+	Ano Letivo INT,
+	PercFrequencia VARCHAR(),
+	Codigo INT,
+	CodigoCRE VARCHAR(),
+	PRIMARY KEY(Ano Letivo,Codigo,CodigoCRE),
+	FOREIGN KEY(Codigo) REFERENCES Serie (Codigo),
+	FOREIGN KEY(CodigoCRE) REFERENCES CRE (Codigo)
+)
+
