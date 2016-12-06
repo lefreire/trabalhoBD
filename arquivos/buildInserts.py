@@ -88,19 +88,7 @@ for row in data:
 
 for discEsc in disciplinaEscola:
 	print("INSERT INTO EscolaDisciplina(NumProfessores,Sigla,Designacao) VALUES (" +
-		discEsc['numeroProfessores'] + ",'" + discEsc['sigla'] + "'," + discEsc['designacao'] + ");")
+		discEsc['numeroProfessores'] + ",'" + discEsc['sigla'] + "','" + discEsc['designacao'] + "');")
 
 
-
-
-
-
-
-
-
-
-
-			
-		
-				
 
