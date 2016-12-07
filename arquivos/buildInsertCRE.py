@@ -48,7 +48,7 @@ with open('ProfessoresEscola2.csv','r') as f:
 
 for elem in escolaSerie:
 	if elem['serie'] != '0':
-		print("INSERT INTO EscolaSerie(Codigo,Designacao) VALUES ("+elem['serie']+",\""+elem['designacao']+"\"); ")
+		print("INSERT INTO EscolaSerie(Codigo,Designacao) VALUES ("+elem['serie']+",'"+elem['designacao']+"'); ")
 
 
 

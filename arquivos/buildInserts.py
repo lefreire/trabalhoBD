@@ -68,8 +68,9 @@ disciplina = {
 	'Professor II'       :"PROF2"  
 }
 
+
 for key in list(disciplina):
-	print("INSERT INTO Disciplina(Sigla,Descricao,Nome) VALUES (\""+ disciplina[key] + "\",\"\",\""+key+"\");")
+	print("INSERT INTO Disciplina(Nome, Sigla,Descricao) VALUES ('"+ disciplina[key] + "','" +key+ "',' ');")
 
 print("\n\n\n")
 
@@ -94,7 +95,7 @@ for row in data:
 			disciplinaEscola.append(b)
 
 for discEsc in disciplinaEscola:
-	print("INSERT INTO DisciplinaEscola(NumProfessores,Sigla,Designacao) VALUES (" +
+	print("INSERT INTO DisciplinaEscola(numeroProfessores,Sigla,Designacao) VALUES (" +
 		discEsc['numeroProfessores'] + ",'" + discEsc['sigla'] + "','" + discEsc['designacao'] + "');")
 
 
