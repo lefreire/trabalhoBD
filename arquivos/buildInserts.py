@@ -3,7 +3,6 @@
 
 import csv
 
-
 # Preenchendo a Tabela Bairro
 bairros = []
 aux = []
@@ -69,6 +68,14 @@ disciplina = {
 	'Professor II'       :"PROF2"  
 }
 
+for key in list(disciplina):
+	print("INSERT INTO Disciplina(Sigla,Descricao,Nome) VALUES (\""+ disciplina[key] + "\",\"\",\""+key+"\");")
+
+print("\n\n\n")
+
+# Preenchendo a Tabela de EscolaDisciplina
+
+
 data = []
 with open('ProfessoresEscola.csv','r') as f:
 	reader = csv.reader(f)
@@ -87,8 +94,11 @@ for row in data:
 			disciplinaEscola.append(b)
 
 for discEsc in disciplinaEscola:
-	print("INSERT INTO EscolaDisciplina(NumProfessores,Sigla,Designacao) VALUES (" +
+	print("INSERT INTO DisciplinaEscola(NumProfessores,Sigla,Designacao) VALUES (" +
 		discEsc['numeroProfessores'] + ",'" + discEsc['sigla'] + "','" + discEsc['designacao'] + "');")
+
+
+
 
 
 
