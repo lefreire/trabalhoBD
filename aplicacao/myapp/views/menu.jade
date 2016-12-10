@@ -8,27 +8,34 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href='/') BD
-    // Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li 
-          a(href='/consulta01') Consulta 1
-        li 
-          a(href='/consulta02') Consulta 2
-        li 
-          a(href='/consulta03') Consulta 3
-        li 
-          a(href='/consulta04') Consulta 4
-        li 
-          a(href='/consulta05') Consulta 5
-        li 
-          a(href='/consulta06') Consulta 6
-        li 
-          a(href='/consulta07') Consulta 7
-        li 
-          a(href='/consulta08') Consulta 8
-        li 
-          a(href='/consulta09') Consulta 9                                                     
-        li 
-          a(href='/consulta10') Consulta 10
-        
+      ul.nav.navbar-nav.navbar-left
+          li.dropdown
+            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Consultas
+              span.caret
+            ul.dropdown-menu
+              li 
+                a(href='/consulta01') Aprovados por Bairro
+              li 
+                a(href='/consulta02') Professores por escola
+              li 
+                a(href='/consulta03') Disciplina por escola
+              li.divider(role='separator')
+              li 
+                a(href='/consulta04') Série por CRE
+              li 
+                a(href='/consulta05') Número de professores por bairro
+              li 
+                a(href='/consulta06') Alunos por bairro em 2012 e 2013
+              li.divider(role='separator')
+              li 
+                a(href='/consulta07') Aprovados por CRE
+              li 
+                a(href='/consulta08') Média de aprovados por CRE
+              li 
+                a(href='/consulta09') Média de professores por disciplina
+              li.divider(role='separator')
+              li 
+                a(href='/consulta10') Bairros que não possuem escolas       
+              li 
+                a(href='/consulta11') Lista de CRE                  
