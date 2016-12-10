@@ -75,7 +75,7 @@ CREATE TABLE EscolaSerie (
 CREATE TABLE FrequenciaAprovados (
 	TotalAvaliados INT,
 	TotalAprovados INT,
-	TotalReprovados INT DEFAULT 0,
+	TotalReprovados INT,
 	PercAprovados FLOAT,
 	AnoLetivo INT,
 	PercFrequencia FLOAT,
