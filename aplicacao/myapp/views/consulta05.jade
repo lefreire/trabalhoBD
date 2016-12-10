@@ -1,3 +1,14 @@
 extends layout
 
 block content
+  h1 Número de Aprovados por Bairro
+  table.table
+    tr 
+      td Sigla da CRE
+      td Nome do Bairro
+      td Número de Professores
+    each row in dados
+      tr
+        td #{row.Sigla}
+        td #{row.NomeBairro}
+        td #{row.NumProf}

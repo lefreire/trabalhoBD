@@ -1,3 +1,14 @@
 extends layout
 
 block content
+  h1 Bairros que tiveram menos de 200 alunos em 2012 e em 2013
+  table.table
+    tr 
+      td Nome do Bairro
+      td Número de Alunos
+      td Ano
+    each row in dados
+      tr
+        td #{row.NomeBairro}
+        td #{row.Total}
+        td #{row.Ano}

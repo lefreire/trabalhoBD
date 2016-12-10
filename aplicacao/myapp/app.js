@@ -10,8 +10,6 @@ var mysql        = require('mysql');
 // importando os controllers
 var index = require('./routes/index');
 
-var consulta01 = require('./routes/consulta01');
-
 var app = express();
 
 var connection = mysql.createConnection({
@@ -49,15 +47,78 @@ app.get('/consulta01',function(req,res){
 	});	 
 });
 
-app.get('/consulta02',function(req,res){ res.render('consulta02'); });
-app.get('/consulta03',function(req,res){ res.render('consulta03'); });
-app.get('/consulta04',function(req,res){ res.render('consulta04'); });
-app.get('/consulta05',function(req,res){ res.render('consulta05'); });
-app.get('/consulta06',function(req,res){ res.render('consulta06'); });
-app.get('/consulta07',function(req,res){ res.render('consulta07'); });
-app.get('/consulta08',function(req,res){ res.render('consulta08'); });
-app.get('/consulta09',function(req,res){ res.render('consulta09'); });
-app.get('/consulta10',function(req,res){ res.render('consulta10'); });
+	
+app.get('/consulta02',function(req,res){ 
+	var query02 = 'SELECT Nome, numeroProfessores, Sigla FROM ResultadoEscola;';
+	connection.query(query02, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta02', { dados: rows});
+	});	 
+});
+
+app.get('/consulta03',function(req,res){ 
+	var query03 = 'SELECT Disciplina.Nome as NomeDisciplina , numeroProfessores, ResultadoEscola.nome as NomeEscola from ResultadoEscola left outer join Disciplina on Disciplina.Sigla = ResultadoEscola.Sigla where numeroProfessores > 10;';
+	connection.query(query03, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta03', { dados: rows});
+	});	 
+});
+
+app.get('/consulta04',function(req,res){ 
+	var query04 = 'select Serie.Descricao, CodigoCRE,PercAprovados, TotalAprovados from Serie natural join FrequenciaAprovados as FA inner join CRE on CRE.Codigo = FA.CodigoCRE  where TotalAprovados = some (select max(TotalAprovados) from FrequenciaAprovados group by CodigoCRE);';
+	connection.query(query04, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta04', { dados: rows});
+	});	 
+});
+
+app.get('/consulta05',function(req,res){ 
+	var query05 = 'select d.Sigla, e.NomeBairro,sum(numeroProfessores) AS NumProf from Disciplina d natural join DisciplinaEscola de inner join Escola e on de.Designacao = e.Designacao natural join QuantBairro2013 q group by d.Sigla,e.NomeBairro;';
+	connection.query(query05, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta05', { dados: rows});
+	});	 
+});
+
+
+app.get('/consulta06',function(req,res){ 
+	var query06 = '(select NomeBairro, Total, 2012 AS Ano from QuantBairro2012 where Total < 200) union (select NomeBairro, Total, 2013 AS Ano from QuantBairro2013 where Total < 200) order by Ano, NomeBairro;';
+	connection.query(query06, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta06', { dados: rows});
+	});	 
+});
+
+app.get('/consulta07',function(req,res){ 
+	var query07 = 'select codigoCRE,sum(distinct TotalAprovados) AS TotalAprovados from FrequenciaAprovados group by CodigoCRE;';
+
+	connection.query(query07, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta07', { dados: rows} );
+	});	 
+});
+
+app.get('/consulta08',function(req,res){
+	var query08 = 'select codigoCRE,avg(distinct TotalAprovados)  AS MediaAprovados  from FrequenciaAprovados group by CodigoCRE;';
+
+	connection.query(query08, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta08', { dados: rows} );
+	});	 
+});
+
+app.get('/consulta09',function(req,res){
+	var query09 = 'select  Nome, avg(numeroProfessores) AS MediaProfessores from DisciplinaEscola natural join Disciplina group by Sigla;';
+
+	connection.query(query09, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta09', { dados: rows} );
+	});	 
+});
+
+app.get('/consulta10',function(req,res){
+ res.render('consulta10'); 
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

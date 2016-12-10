@@ -1,4 +1,16 @@
-
 extends layout
 
 block content
+  h1 Número de Aprovados por Séries e CRE
+  table.table
+    tr 
+      td Descrição da Série
+      td Código do CRE
+      td Percentual de Aprovados
+      td Total de Aprovados
+    each row in dados
+      tr
+        td #{row.Descricao}
+        td #{row.CodigoCRE}
+        td #{row.PercAprovados}
+        td #{row.TotalAprovados}

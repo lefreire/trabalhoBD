@@ -1,4 +1,12 @@
-
 extends layout
 
 block content
+  h1 Medoa de Professores por Disciplina
+  table.table
+    tr 
+      td Nome da Disciplina
+      td Média da Professores
+    each row in dados
+      tr
+        td #{row.Nome}
+        td #{row.MediaProfessores}

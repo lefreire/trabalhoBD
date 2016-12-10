@@ -1,4 +1,12 @@
-
 extends layout
 
 block content
+  h1 Total de Aprovados por CRE
+  table.table
+    tr 
+      td Código da CRE
+      td Total de Aprovados
+    each row in dados
+      tr
+        td #{row.codigoCRE}
+        td #{row.TotalAprovados}

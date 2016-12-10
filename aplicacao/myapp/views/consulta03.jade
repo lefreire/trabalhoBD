@@ -1,3 +1,14 @@
 extends layout
 
 block content
+  h1 Número de Aprovados por Bairro
+  table.table
+    tr 
+      td Nome da Disciplina
+      td Número de Professores
+      td Nome da Escola
+    each row in dados
+      tr
+        td #{row.NomeDisciplina}
+        td #{row.numeroProfessores}
+        td #{row.NomeEscola}

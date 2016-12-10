@@ -1,4 +1,12 @@
-
 extends layout
 
 block content
+  h1 Média de Alunos aprovados por CRE
+  table.table
+    tr 
+      td Código da CRE
+      td Média da Frequência de Aprovados
+    each row in dados
+      tr
+        td #{row.codigoCRE}
+        td #{row.MediaAprovados}
