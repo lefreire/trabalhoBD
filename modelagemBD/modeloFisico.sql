@@ -23,7 +23,7 @@ CREATE TABLE QuantBairro2012 (
 
 CREATE TABLE CRE (
 	Codigo VARCHAR(2) PRIMARY KEY,
-	NomeIniciail VARCHAR(20),
+	NomeInicial VARCHAR(20),
 	UltimoNome VARCHAR(20),
 	imagemSatelite BLOB
 );

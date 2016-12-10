@@ -125,7 +125,7 @@ app.get('/consulta10',function(req,res){
 });
 
 app.get('/consulta11',function(req,res){
-	var query11 = 'SELECT  Codigo,NomeIniciail,UltimoNome,imagemSatelite FROM CRE';
+	var query11 = 'SELECT  Codigo,NomeInicial,UltimoNome,imagemSatelite FROM CRE';
 	connection.query(query11, function(err, rows, fields) {
 		if (err) throw err;
   		res.render('consulta11', { dados: rows} );

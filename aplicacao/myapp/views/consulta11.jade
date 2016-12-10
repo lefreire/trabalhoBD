@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 CRE's cadastrdas
+  table.table.table-condensed
+    tr 
+      td.text-center Código
+      td.text-center Coordenador
+      td.text-center Mapa/Localização    
+    each row in dados
+      tr
+        td.text-center #{row.Codigo}
+        td.text-center #{row.NomeInicial},#{row.UltimoNome}
+        td.text-center 
+          img.img-responsive(src='/images/#{row.imagemSatelite}')
