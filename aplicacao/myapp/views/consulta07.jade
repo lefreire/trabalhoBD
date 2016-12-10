@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1 Total de Aprovados por CRE
-  table.table
+  table.table.table-condensed
     tr 
-      td Código da CRE
-      td Total de Aprovados
+      td.text-center Código da CRE
+      td.text-center Total de Aprovados
     each row in dados
       tr
-        td #{row.codigoCRE}
-        td #{row.TotalAprovados}
+        td.text-center #{row.codigoCRE}
+        td.text-center #{row.TotalAprovados}

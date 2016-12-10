@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1 Média de Professores por Disciplina
-  table.table
+  table.table.table-condensed
     tr 
-      td Nome da Disciplina
-      td Média de Professores
+      td.text-center Nome da Disciplina
+      td.text-center Média de Professores
     each row in dados
       tr
-        td #{row.Nome}
-        td #{row.MediaProfessores}
+        td.text-center #{row.Nome}
+        td.text-center #{row.MediaProfessores}

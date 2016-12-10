@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1 Média de Alunos aprovados por CRE
-  table.table
+  table.table.table-condensed
     tr 
-      td Código da CRE
-      td Média da Frequência de Aprovados
+      td.text-center Código da CRE
+      td.text-center Média da Frequência de Aprovados
     each row in dados
       tr
-        td #{row.codigoCRE}
-        td #{row.MediaAprovados}
+        td.text-center #{row.codigoCRE}
+        td.text-center #{row.MediaAprovados}
