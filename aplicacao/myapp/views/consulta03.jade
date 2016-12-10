@@ -2,13 +2,13 @@ extends layout
 
 block content
   h1 Número de Aprovados por Bairro
-  table.table
+  table.table.table-condensed
     tr 
-      td Nome da Disciplina
-      td Número de Professores
-      td Nome da Escola
+      td.text-center Nome da Disciplina
+      td.text-center Número de Professores
+      td.text-center Nome da Escola
     each row in dados
       tr
-        td #{row.NomeDisciplina}
-        td #{row.numeroProfessores}
-        td #{row.NomeEscola}
+        td.text-center #{row.NomeDisciplina}
+        td.text-center #{row.numeroProfessores}
+        td.text-center #{row.NomeEscola}

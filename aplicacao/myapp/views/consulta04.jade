@@ -2,15 +2,15 @@ extends layout
 
 block content
   h1 Número de Aprovados por Séries e CRE
-  table.table
+  table.table.table-condensed
     tr 
-      td Descrição da Série
-      td Código do CRE
-      td Percentual de Aprovados
-      td Total de Aprovados
+      td.text-center Descrição da Série
+      td.text-center Código do CRE
+      td.text-center Percentual de Aprovados
+      td.text-center Total de Aprovados
     each row in dados
       tr
-        td #{row.Descricao}
-        td #{row.CodigoCRE}
-        td #{row.PercAprovados}
-        td #{row.TotalAprovados}
+        td.text-center #{row.Descricao}
+        td.text-center #{row.CodigoCRE}
+        td.text-center #{row.PercAprovados}
+        td.text-center #{row.TotalAprovados}

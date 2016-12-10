@@ -2,13 +2,13 @@ extends layout
 
 block content
   h1 Número de Aprovados por Bairro
-  table.table
+  table.table.table-condensed
     tr 
-      td Sigla da CRE
-      td Nome do Bairro
-      td Número de Professores
+      td.text-center Sigla da CRE
+      td.text-center Nome do Bairro
+      td.text-center Número de Professores
     each row in dados
       tr
-        td #{row.Sigla}
-        td #{row.NomeBairro}
-        td #{row.NumProf}
+        td.text-center #{row.Sigla}
+        td.text-center #{row.NomeBairro}
+        td.text-center #{row.NumProf}

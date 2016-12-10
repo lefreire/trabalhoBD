@@ -49,7 +49,7 @@ app.get('/consulta01',function(req,res){
 
 	
 app.get('/consulta02',function(req,res){ 
-	var query02 = 'SELECT Nome, numeroProfessores, Sigla FROM ResultadoEscola;';
+	var query02 = 'SELECT Nome AS NomeEscola, numeroProfessores, Sigla FROM ResultadoEscola;';
 	connection.query(query02, function(err, rows, fields) {
 		if (err) throw err;
   		res.render('consulta02', { dados: rows});
