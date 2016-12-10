@@ -1,4 +1,14 @@
-
 extends layout
 
 block content
+  h1 Bairros que não possuem escolas
+  table.table.table-condensed
+    tr 
+      td.text-center Nome do Bairro
+      td.text-center Latitude
+      td.text-center Longitude      
+    each row in dados
+      tr
+        td.text-center #{row.NomeBairro}
+        td.text-center #{row.Latitude}
+        td.text-center #{row.Longitude}

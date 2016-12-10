@@ -1,14 +1,14 @@
 extends layout
 
 block content
-  h1 Número de Aprovados por Bairro
+  h1 Disciplinas por escola com mais de 10 professora
   table.table.table-condensed
     tr 
       td.text-center Nome da Disciplina
+      td.text-center Nome da Escola      
       td.text-center Número de Professores
-      td.text-center Nome da Escola
     each row in dados
       tr
         td.text-center #{row.NomeDisciplina}
+        td.text-center #{row.NomeEscola}        
         td.text-center #{row.numeroProfessores}
-        td.text-center #{row.NomeEscola}

@@ -117,7 +117,11 @@ app.get('/consulta09',function(req,res){
 });
 
 app.get('/consulta10',function(req,res){
- res.render('consulta10'); 
+	var query10 = 'select NomeBairro, Latitude, Longitude from Bairro where NomeBairro not in (select NomeBairro from Escola);';
+	connection.query(query10, function(err, rows, fields) {
+		if (err) throw err;
+  		res.render('consulta10', { dados: rows} );
+	});	 	
 });
 
 // catch 404 and forward to error handler
