@@ -78,7 +78,7 @@ CREATE TABLE FrequenciaAprovados (
 	TotalReprovados INT,
 	PercAprovados FLOAT,
 	AnoLetivo INT,
-	PercFrequencia FLOAT(2,1),
+	PercFrequencia FLOAT,
 	Codigo INT,
 	CodigoCRE VARCHAR(2),
 	PRIMARY KEY(AnoLetivo,Codigo,CodigoCRE),
@@ -86,3 +86,4 @@ CREATE TABLE FrequenciaAprovados (
 	FOREIGN KEY(CodigoCRE) REFERENCES CRE (Codigo)
 );
 
+create view ResultadoEscola as select Nome, numeroProfessores, Sigla from DisciplinaEscola natural join Escola;

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Número de Aprovados por Bairro
+  table.table
+    tr 
+      td Codigo CRE
+      td Número de Aprovadps
+    each row in dados
+      tr
+        td #{row.Codigo}
+        td #{row.SomaAprovados}
+        
