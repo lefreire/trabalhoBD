@@ -296,17 +296,18 @@ INSERT INTO QuantBairro2012 VALUES ('Zumbi','428');
 INSERT INTO QuantBairro2012 VALUES ('Água Santa','832');
 
 --insert tabela CRE
-INSERT INTO CRE VALUES('01', 'FATIMA', 'LOURENCO', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/PrimeiraCRE.png'));
-INSERT INTO CRE VALUES('02', 'MARIA INEZ', 'BRAZUNA', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/SegundaCRE.png'));
-INSERT INTO CRE VALUES('03', 'MARIA', 'REIS', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/TerceiraCRE.png'));
-INSERT INTO CRE VALUES('04', 'JOSE', 'DA SILVA', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/QuartaCRE.png'));
-INSERT INTO CRE VALUES('05', 'MARIA', 'COSTA', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/QuintaCRE.png'));
-INSERT INTO CRE VALUES('06', 'REJANE', 'COSTA', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/SextaCRE.png'));
-INSERT INTO CRE VALUES('07', 'ERNANI', 'PEREIRA', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/SetimaCRE.png'));
-INSERT INTO CRE VALUES('08', 'JOSECY', 'BRILHANTINO', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/OitavaCRE.png'));
-INSERT INTO CRE VALUES('09', 'JOSE', 'DA SILVA', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/NonaCRE.png'));
-INSERT INTO CRE VALUES('10', 'MARIA', 'GONCALVES', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/DecimaCRE.png'));
-INSERT INTO CRE VALUES('11', 'TANIA', 'BENDAS', LOAD_FILE('/home/leticia/projetos/trabalhoBD/modelagemBD/imagem/DecimaPrimeiraCRE.png'));
+INSERT INTO CRE VALUES ('01','FATIMA','LOURENCO','fotos/01CRE.png');
+INSERT INTO CRE VALUES ('02','MARIA INEZ','BRAZUNA','fotos/02CRE.png');
+INSERT INTO CRE VALUES ('03','MARIA','REIS','fotos/03CRE.png');
+INSERT INTO CRE VALUES ('04','JOSE','DA SILVA','fotos/04CRE.png');
+INSERT INTO CRE VALUES ('05','MARIA','COSTA','fotos/05CRE.png');
+INSERT INTO CRE VALUES ('06','REJANE','COSTA','fotos/06CRE.png');
+INSERT INTO CRE VALUES ('07','ERNANI','PEREIRA','fotos/07CRE.png');
+INSERT INTO CRE VALUES ('08','JOSECY','BRILHANTINO','fotos/08CRE.png'); 
+INSERT INTO CRE VALUES ('09','JOSE','DA SILVA','fotos/09CRE.png');
+INSERT INTO CRE VALUES ('10','MARIA','GONCALVES','fotos/A10CRE.png');
+INSERT INTO CRE VALUES ('11','TANIA','BENDAS','fotos/B11CRE.png');
+
 
 -- insert tabela Telefone
 INSERT INTO Telefone VALUES('01', '2263-2928');
@@ -1763,7 +1764,7 @@ INSERT INTO Escola(NomeBairro,Nome,Latitude,Longitude,Designacao) VALUES  ('ÁGU
 
 
 -- insert tabela Disciplina
-INSERT INTO Disciplina(Nome, Sigla,Descricao) VALUES  ('Ensino Fundamental', 'ENSFUND',' '), ('Francês', 'FR',' '), ('Educação Musical', 'EM',' '), ('Artes Industriais', 'AI',' '), ('Artes Cênicas', 'AC',' '), ('Ensino Religioso', 'ENSREL',' '), ('Ciências', 'C',' '), ('Matemática', 'MAT',' '), ('ES','Espanhol',' '), ('Professor II', 'PROF2',' '), ('Língua Portuguesa', 'LP',' '), ('Educação Infantil', 'EDUINF',' '), ('Inglês', 'ING',' '), ('Educação Para O Lar', 'EPOL',' '), ('Geografia', 'GEO',' '), ('Educação Física', 'EF',' '), ('Técnicas Agrícolas', 'TECAGRI',' '), ('Artes Plasticas', 'AP',' '), ('Técnicas Comerciais', 'TECINF',' '), ('História', 'HIS',' ');
+INSERT INTO Disciplina(Nome, Sigla,Descricao) VALUES  ('Ensino Fundamental', 'ENSFUND','Ensino Fundamental'), ('Francês', 'FR','Francês'), ('Educação Musical', 'EM','Educação Musical'), ('Artes Industriais', 'AI','Artes Industriais'), ('Artes Cênicas', 'AC','Artes Cênicas'), ('Ensino Religioso', 'ENSREL','Ensino Religioso'), ('Ciências', 'C','Ciências'), ('Matemática', 'MAT','Matemática'), ('Espanhol', 'ES','Espanhol'), ('Professor II', 'PROF2','Professor II'), ('Língua Portuguesa', 'LP','Língua Portuguesa'), ('Educação Infantil', 'EDUINF','Educação Infantil'), ('Inglês', 'ING','Inglês'), ('Educação Para O Lar', 'EPOL','Educação Para O Lar'), ('Geografia', 'GEO','Geografia'), ('Educação Física', 'EF','Educação Física'), ('Técnicas Agrícolas', 'TECAGRI','Técnicas Agrícolas'), ('Artes Plasticas', 'AP','Artes Plasticas'), ('Técnicas Comerciais', 'TECINF','Técnicas Comerciais'), ('História', 'HIS','História');
 
 --insert tabela DisciplinaEscola
 INSERT INTO DisciplinaEscola(numeroProfessores,Sigla,Designacao) VALUES  (6,'AP','0101001');
